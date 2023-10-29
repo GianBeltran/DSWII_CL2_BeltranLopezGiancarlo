@@ -1,0 +1,29 @@
+CREATE DATABASE Control2BD
+
+create table producto(
+idproducto int primary key auto_increment,
+nombproducto varchar(50),
+descproducto varchar(100),
+cantidad int,
+fechaVenc Date
+);
+
+-- Registro 1
+INSERT INTO producto (nombproducto, descproducto, cantidad, fechaVenc)
+VALUES ('Manzanas', 'Manzanas frescas', 100, '2023-12-31');
+
+-- Registro 2
+INSERT INTO producto (nombproducto, descproducto, cantidad, fechaVenc)
+VALUES ('Leche', 'Leche desnatada', 50, '2023-11-15');
+
+-- Registro 3
+INSERT INTO producto (nombproducto, descproducto, cantidad, fechaVenc)
+VALUES ('Pan Integral', 'Pan integral recién horneado', 75, '2023-11-30');
+
+-- Registro 4
+INSERT INTO producto (nombproducto, descproducto, cantidad, fechaVenc)
+VALUES ('Camisetas', 'Camisetas de algodón', 200, '2024-03-15');
+
+-- Registro 5
+INSERT INTO producto (nombproducto, descproducto, cantidad, fechaVenc)
+VALUES ('Jabón de Lavandería', 'Detergente en polvo', 30, '2023-12-01');
