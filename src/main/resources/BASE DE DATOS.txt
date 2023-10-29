@@ -5,7 +5,7 @@ idproducto int primary key auto_increment,
 nombproducto varchar(50),
 descproducto varchar(100),
 cantidad int,
-fechaVenc Date
+fecha_venc Date
 );
 
 -- Registro 1

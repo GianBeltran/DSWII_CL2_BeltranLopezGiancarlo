@@ -16,9 +16,9 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
 
     List<Producto> findByNombproductoContainingIgnoreCase(String filtro);
 
-    @Query("SELECT p FROM Producto p WHERE p.nombproducto LIKE %:filtro%")
+    @Query("SELECT p FROM Producto p WHERE p.cantidad > 10 AND p.cantidad < 100")
     List<Producto> filtrarProductosPorNombre(@Param("filtro") String filtro);
 
-    @Query(value = "SELECT * FROM Producto WHERE nombproducto LIKE %:filtro%", nativeQuery = true)
+    @Query(value = "SELECT * FROM Producto WHERE WHERE YEAR(fecha_venc) = 2024", nativeQuery = true)
     List<Producto> filtrarProductosPorNombreSQL(@Param("filtro") String filtro);
 }
