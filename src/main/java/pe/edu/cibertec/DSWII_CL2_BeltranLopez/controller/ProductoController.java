@@ -22,7 +22,7 @@ public class ProductoController {
     public ResponseEntity<List<Producto>> listarProductos(){
         List<Producto> productoList = new ArrayList<>();
         productoService.listarProductos().forEach(productoList::add);
-        if (productoList.isEmpty()){
+        if(productoList.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(productoList, HttpStatus.OK);
@@ -31,9 +31,19 @@ public class ProductoController {
     @GetMapping("/{id}")
     public ResponseEntity<Producto> obtenerProducto(@PathVariable("id") Integer id){
         Producto producto = productoService.obtenerProductoPorId(id)
-                .orElseThrow(() -> new ResourceNotFoundException("El producto con el Id Nro. "+
-                        id + " no existe."));
+                .orElseThrow(() -> new ResourceNotFoundException("El producto con el Id Nro. "+ id + " no existe."));
+
         return new ResponseEntity<>(producto, HttpStatus.OK);
+    }
+
+    @GetMapping("/nombproducto/{filtro}")
+    public ResponseEntity<List<Producto>> filtraroProductosPorNombre(@PathVariable("filtro") String filtro){
+        List<Producto> productoList = new ArrayList<>();
+        productoService.obtenerProductosPorFiltro(filtro).forEach(productoList::add);
+        if(productoList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(productoList, HttpStatus.OK);
     }
 
     @PostMapping("")
@@ -44,13 +54,10 @@ public class ProductoController {
     @PutMapping("/{id}")
     public ResponseEntity<Producto> actualizarProducto(@PathVariable("id") Integer id, @RequestBody Producto producto){
         Producto oldProducto = productoService.obtenerProductoPorId(id)
-                .orElseThrow(() -> new ResourceNotFoundException("El producto con el Id Nro. "+
-                        id + " no existe."));
-        oldProducto.setNombproducto(producto.getNombproducto());
-        oldProducto.setDescproducto(producto.getDescproducto());
-        oldProducto.setCantidad(producto.getCantidad());
-        oldProducto.setFechaVenc(producto.getFechaVenc());
-
+                .orElseThrow(() -> new ResourceNotFoundException("El producto con el Id Nro. "+ id + " no existe."));
+        oldProducto.setNombproducto(oldProducto.getNombproducto());
+        oldProducto.setDescproducto(oldProducto.getDescproducto());
+        oldProducto.setCantidad(oldProducto.getCantidad());
         return new ResponseEntity<>(productoService.guardar(oldProducto), HttpStatus.OK);
     }
 }

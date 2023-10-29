@@ -17,27 +17,26 @@ public class ProductoService {
     public List<Producto> listarProductos(){
         return productoRepository.findAll();
     }
-    public Producto guardar(Producto producto){
-        return productoRepository.save(producto);
+    public Producto guardar(Producto category){
+        return productoRepository.save(category);
     }
     public Optional<Producto> obtenerProductoPorId(Integer id){
-        Optional<Producto> producto = productoRepository.findById(id);
-        if(producto.isEmpty()){
+        Optional<Producto> category = productoRepository.findById(id);
+        if(category.isEmpty()){
             return Optional.empty();
         }else
-            return producto;
+            return category;
     }
 
     public Optional<Producto> obtenerProductoPorNombre(String nombproducto){
-        Optional<Producto> producto = productoRepository.findBynombproducto(nombproducto);
-        if(producto.isEmpty())
+        Optional<Producto> category = productoRepository.findByNombproducto(nombproducto);
+        if(category.isEmpty())
             return  Optional.empty();
         else
-            return producto;
+            return category;
     }
 
     public List<Producto> obtenerProductosPorFiltro(String filtro){
         return productoRepository.filtrarProductosPorNombreSQL(filtro);
     }
-
 }
