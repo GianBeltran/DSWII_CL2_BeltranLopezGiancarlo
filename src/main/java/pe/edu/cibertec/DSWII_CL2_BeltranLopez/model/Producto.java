@@ -13,12 +13,16 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idproducto;
+
     @Column(name = "nombproducto")
     private String nombproducto;
+
     @Column(name = "descproducto")
     private String descproducto;
+
     @Column(name = "cantidad")
     private Integer cantidad;
+
     @Column(name = "fechaVenc")
     private Date fechaVenc;
 }

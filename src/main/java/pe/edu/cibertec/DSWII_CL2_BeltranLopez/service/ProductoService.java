@@ -1,5 +1,6 @@
 package pe.edu.cibertec.DSWII_CL2_BeltranLopez.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pe.edu.cibertec.DSWII_CL2_BeltranLopez.model.Producto;
 import pe.edu.cibertec.DSWII_CL2_BeltranLopez.repository.ProductoRepository;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class ProductoService {
 
     private ProductoRepository productoRepository;
@@ -26,9 +28,8 @@ public class ProductoService {
             return producto;
     }
 
-/*
-    public Optional<Producto> obtenerProductoPorNombre(String productoName){
-        Optional<Producto> producto = productoRepository.findByProductoname(productoName);
+    public Optional<Producto> obtenerProductoPorNombre(String nombproducto){
+        Optional<Producto> producto = productoRepository.findBynombproducto(nombproducto);
         if(producto.isEmpty())
             return  Optional.empty();
         else
@@ -39,5 +40,4 @@ public class ProductoService {
         return productoRepository.filtrarProductosPorNombreSQL(filtro);
     }
 
-*/
 }

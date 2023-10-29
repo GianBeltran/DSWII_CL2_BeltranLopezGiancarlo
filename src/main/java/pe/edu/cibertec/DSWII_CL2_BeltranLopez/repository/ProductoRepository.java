@@ -12,10 +12,9 @@ import java.util.Optional;
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Integer> {
 
-/*
-    Optional<Producto> findByProductoname(String categoryName);
+    Optional<Producto> findBynombproducto(String nombproducto);
 
-    List<Producto> findByProductonameContainingIgnoreCase(String filtro);
+    List<Producto> findBynombproductoContainingIgnoreCase(String filtro);
 
     @Query("SELECT p FROM producto p WHERE p.nombproducto LIKE %:filtro%")
     List<Producto> filtrarProductosPorNombre(@Param("filtro") String filtro);
@@ -23,5 +22,4 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
     @Query(value = "SELECT * FROM producto WHERE nombproducto LIKE %:filtro%",
     nativeQuery = true)
     List<Producto> filtrarProductosPorNombreSQL(@Param("filtro") String filtro);
-*/
 }

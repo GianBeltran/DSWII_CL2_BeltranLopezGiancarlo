@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/producto")
+@RequestMapping(path = "api/v1/producto")
 @AllArgsConstructor
 public class ProductoController {
 
